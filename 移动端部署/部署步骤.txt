@@ -1,0 +1,31 @@
+1、生成项目package.json文件
+选择使用的源码根目录(目录名用英文哦)打开cmd，输入npm init -y，会生成一个package.json文件即可！
+2、手机、平板等移动端安装d_node.js.apk。
+3、给d/node这个APP授予所有文件管理权限（注意这里需要手动授权！！！），否则项目内容APP无权运行！
+首先，点击右上角三个点，点击re-install node.js来安装一下！！!
+点击右上角三个点点击Shell，再弹出黑框框中输入npm install -g express来安装express框架！
+4、点击右下角加号，选择第二个添加包含package.json的目录。然后选择源码目录。
+5、点击左上角三横杠，在最上面选择前两项（Start on boot、Start on update），然后点击你添加的项目的START就可以运行啦！
+
+Q&A：
+1、项目点击START后，STOP一亮就灭了
+很多种情况，如端口被占用、模块缺失、没授予所有文件管理权限等等。
+建议打开STD OUT查看报错信息来确定问题方向！
+如果解决了还是出问题，建议re-install node.js一下并重启设备！
+2、d/node的其他操作：
+项目相关：
+STOP：停止项目
+REMOVE：移除项目
+OPEN：打开项目package.json（配置文件）
+STD OUT：项目运行时控制台输出内容
+SETTINGS：项目设置
+右下角加号相关：
+Add File(添加文件)
+Add New Tmpfile (新增一个js文件)
+Eval Script（node.js交互式界面，可以运行node.js代码）
+右上角三个小点：
+API Doc：Node.js的API文档
+Task Standard Log：所有任务日志文件
+Shell：Shell终端，安装模块贼方便！！！
+download file：下载文件到指定目录
+git clone：应该是把Github、Gitee等远程仓库保存到本地某目录？

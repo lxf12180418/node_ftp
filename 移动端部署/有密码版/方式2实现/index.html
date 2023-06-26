@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展示文件和文件夹</title>
+<meta name="description" content="该网站是仿FTP网站，Node.js作为后端" />
+<meta http-equiv="content-type"content="text/html; charset=utf-8">
+<!-- 引入 SweetAlert2 库 
+官网链接：https://sweetalert2.github.io
+CDN：https://www.bootcdn.cn/limonte-sweetalert2/
+-->
+<link rel="stylesheet" href="./public/sweetalert2.css">
+<script src="./public/sweetalert2.js"></script>
+<script src="./public/jquery.js"></script>
+<script src="./public/init.js"></script>
+</head>
+<body>
+<h1></h1>
+<hr/>
+<h2>名称&nbsp;&nbsp;&nbsp;&nbsp;大小&nbsp;&nbsp;&nbsp;&nbsp;修改日期</h2>
+<h2 id="1">以下是文件夹：</h2>
+<h2 id="2">以下是文件：</h2>
+<script type="text/javascript">
+let user;
+let pwd;
+  Swal.fire({
+    title: '请输入账号和密码',
+    html:
+      '<input id="swal-input1" class="swal2-input">' +
+      '<input id="swal-input2" class="swal2-input">',
+    focusConfirm: false,
+    preConfirm: () => {
+      // 获取输入框的值
+      user = document.querySelector('#swal-input1').value
+      pwd = document.querySelector('#swal-input2').value
+      // 处理输入框的值
+      console.log('账号：', user)
+      console.log('密码：', pwd)
+      // 获取js  
+      getJs();
+    }
+  })
+</script>
+</body>
+</html>
+

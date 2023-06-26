@@ -1,0 +1,29 @@
+这是一个仿FTP站点的全栈网站，前端为Html+CSS+JS+Jquery+Ajax，后端为Node.js编写。
+
+电脑上安装好node，可以点击一键运行.bat来运行程序，使用默认浏览器打开(如果是IE浏览器，建议更换浏览器打开)。默认打开路径为http://127.0.0.1如果更换端口请使用http://127.0.0.1:端口号来访问！关闭该cmd程序即可关闭WEB服务！
+
+1、先使用node show.js运行show.js。
+2、通过访问http://127.0.0.1或http://127.0.0.1/index.html即可展示needShow目录下的文件夹和文件
+3、src目录下的图片是文件夹、文件以及上个目录(功能暂未设置)的图片
+4、目前只能展示.txt、.md、.html、.js、.json、.xml后缀的文本内容，对于图片和视频的展示以后实现。
+注意：要修改展示的目录可以在show.js中修改“link = currentDir+'\\needShow'”和“const defaultPath = __dirname+'\\'+'needShow'”，currentDir为当前show.js所在目录，link可以设为任何目录。
+
+尝试新增功能：上级目录、文件时间和日期、支持图片、视频等打开和其他格式文件下载（已完成）
+
+BUG汇总：
+一、用户可以通过localhost/getDatas?link=和localhost/content?link=这两个接口(均GET请求)访问其他目录、其他目录文件内容，重大BUG。当访问needShow目录之外时服务器端直接返回拒绝访问即可！(BUG已经解决)
+解决办法：
+在后端show.js文件的这两个接口中都添加了路径检测，定义一个默认展示目录常量defaultPath，每次请求接口时都进行判断
+请求的目录是否以默认目录开头，即调用defaultPath.startsWith(请求目录)，返回为真则说明请求的目录或文件在默认目录下运行请求。如果请求其他非默认目录则会响应没有权限访问的json数据。
+
+二、客户端接收到文本数据后，在新的窗口页面上时显示的是HTML而并非字符串(plain)，这就会导致文本数据如果包含图片、视频、html和js等会被加载，影响文本内容的显示！（已解决）
+解决方法：
+1、创建一个文本节点“document.createTextNode(文本数据);  ”
+2、把该文本节点添加到body元素子节点“document.body.appendChild(textNode);”就OK啦！
+
+
+但是请求接口参数出错或路径故意写错都会暴露错误信息给前端！！！(try/catch来捕获异常，基本解决)
+缺点：
+1、显示路径时会出现“C:\Users\LZM\Desktop\node网站\项目实战\仿FTP展示索引\”
+这样既会暴露自己主机的用户名LZM同时会暴露项目路径等信息。被黑客捕获可能会成为入侵的信息。（已解决）
+2、CORS跨域请求问题（已解决）
