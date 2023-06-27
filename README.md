@@ -1,6 +1,6 @@
-# Node实现仿FTP索引
+# Node实现仿FTP索引网站
 
-这是一个仿FTP站点的全栈网站，前端为Html+CSS+JS+Jquery+Ajax，后端为Node.js编写。
+这是一个仿FTP站点的全栈网站，前端为Html+CSS+JS+Jquery，后端为Node.js编写。
 
 有密码访问的默认账号和密码都是test！！！
 
