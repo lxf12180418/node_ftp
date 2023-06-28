@@ -27,3 +27,17 @@ PC端点击一键运行.bat即可启动项目，前提是安装过Node和其他�
 移动端具体使用部署步骤中有说明！需要安装d_node.apk，为了保持APP的后台运行，记得取消对该应用进行电池优化并且运行其后台运行！！！
 
 移动端默认通过8080端口访问！！！
+
+## Docker部署
+
+首先安装Docker
+
+把项目文件(根目录有Dockerfile文件)通过下面两个命令来创建镜像文件并运行在Docker容器中！
+
+docker build -t my-web-service  
+
+docker run 8000(外部访问的端口):8080 (要暴露的Docker容器端口)  my-web-service
+
+然后本机通过http://127.0.0.1:8000(或http://localhost:8000)来访问Web服务啦！
+
+互联网通过http://本机外网IP:8000来访问！
